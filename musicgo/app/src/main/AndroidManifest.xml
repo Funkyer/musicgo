@@ -1,20 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="music.owner.com.musicgo" >
+          package="music.owner.com.musicgo">
+    <!-- 手机震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- 读取日历权限 -->
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+
+    <!-- 读取手机用户帐号 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <!-- 管理手机用户帐号 -->
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+
+    <!-- 常规权限 -->
+    <!-- 避免休眠屏幕长亮 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK">
+    </uses-permission>
+    <!-- 读写sd卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+    </uses-permission>
+
+    <!-- 语音搜索 及 AR -->
+    <!-- 摄像头 -->
+    <uses-permission android:name="android.permission.CAMERA">
+    </uses-permission>
+    <!-- passport的某些登录方式会用到 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <!-- 读短信权限,行程助手根据短信创建行程 -->
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+    <!-- 获取精确gps位置 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- 获取粗略位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 允许程序访问额外的定位提供者指令获取模拟定位信息 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+
+    <!-- 网络链接 -->
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+    <!-- 获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+    </uses-permission>
+    <!-- 更改wifi连状态 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!-- 获取wifi状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用 -->
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+    <!-- 自启动 pushsvr -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!-- 滞留广播 push -->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <!-- 读取写入系统设置 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
+    <!-- 电话状态 导航用 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS">
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- 系统音频设置 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+
+    <!-- shortCut 读取及设置launcher设置 安装删除快捷方式 -->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+
+    <!-- 蓝牙权限,发送到汽车用 -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+
+    <!--索尼手机角标显示权限-->
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+
+    <!--HTC手机角标显示权限-->
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
+
+    <!-- NFC权限 -->
+    <uses-permission android:name="android.permission.NFC"/>
+
+    <!-- 打电话权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <!-- 三星手机上使用用户运动状态数据的权限 -->
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".MusicMainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.MusicPlayActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
