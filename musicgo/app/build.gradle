@@ -28,4 +28,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'me.yokeyword:fragmentation:0.10.5'
 }
